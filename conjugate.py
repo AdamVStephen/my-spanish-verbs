@@ -16,6 +16,11 @@ from collections import OrderedDict
 
 import pdb
 
+
+# Endings to learn and to use later
+
+
+
 presentTenseEndingsAR = {
             'yo' : 'o',
             'tu' : 'as',
@@ -43,19 +48,64 @@ presentTenseEndingsIR = {
             'ellos/ellas/ustedes' : 'en'
             }
 
-class Conjugation:
-    endingsDict = {
-            'yo' : None,
-            'tu' : None,
-            'el' : None,
-            'ella' : None,
-            'usted' : None,
-            'nosotros' : None,
-            'vosotros' : None,
-            'ellos' : None,
-            'ellas' : None,
-            'ustedes' : None
+
+# Preterite
+
+preteriteTenseEndingsAR = {
+            'yo' : 'e',
+            'tu' : 'aste',
+            'el/ella/usted' : 'o',
+            'nosotros' : 'amos',
+            'vosotros' : 'asteis',
+            'ellos/ellas/ustedes' : 'aron'
             }
+
+preteriteTenseEndingsER = {
+            'yo' : 'i',
+            'tu' : 'iste',
+            'el/ella/usted' : 'io',
+            'nosotros' : 'imos',
+            'vosotros' : 'isteis',
+            'ellos/ellas/ustedes' : 'ieron'
+            }
+
+preteriteTenseEndingsIR = preteriteTenseEndingsER
+
+# Future : using the pattern [:-2] needs to distinguish three cases, though w.r.t. the final infinitive, suffixes are the same
+
+futureTenseEndingsAR = {
+            'yo' : 'are',
+            'tu' : 'aras',
+            'el/ella/usted' : 'ara',
+            'nosotros' : 'aremos',
+            'vosotros' : 'areis',
+            'ellos/ellas/ustedes' : 'aran'
+            }
+
+futureTenseEndingsER = {
+            'yo' : 'ere',
+            'tu' : 'eras',
+            'el/ella/usted' : 'era',
+            'nosotros' : 'eremos',
+            'vosotros' : 'ereis',
+            'ellos/ellas/ustedes' : 'eran'
+            }
+
+futureTenseEndingsIR = {
+            'yo' : 'ire',
+            'tu' : 'iras',
+            'el/ella/usted' : 'ira',
+            'nosotros' : 'iremos',
+            'vosotros' : 'ireis',
+            'ellos/ellas/ustedes' : 'iran'
+            }
+
+
+
+
+
+#
+class Conjugation:
     pronounsMap = OrderedDict({
         'yo' : ['yo'],
         'tu' : ['tu'],
@@ -67,6 +117,10 @@ class Conjugation:
 
     def __init__(self, name, endingsDict = None):
         self.name = name
+        self.endingsDict = {}
+        self.setEndings(endingsDict)
+
+    def setEndings(self, endingsDict = None):
         if endingsDict is not None:
             for pronoun, equivalents in self.pronounsMap.items():
                 # Insert the combined form
@@ -98,29 +152,55 @@ def ut_Conjugation():
     print(c)
     print(c.apply('vivir', 'yo'))
 
+    c = Conjugation("Preterite Tense AR", preteriteTenseEndingsAR)
+    print(c)
+    print(c.apply('hablar', 'yo'))
+
 
 class RegularVerb:
     def __init__(self, infinitive, conjugation):
         self.infinitive = infinitive
         self.conjugation = conjugation
 
+    def set(self, conjugation):
+        self.conjugation = conjugation
+
     def __repr__(self):
-        r = []
+        r = [""]
         r.append("Regular Verb : %s" % self.infinitive)
+        r.append("Conjugation  : %s" % self.conjugation.name)
+        r.append("")
         for pronoun in self.conjugation.pronounsMap.keys():
-            r.append("%-20s : %s" % (pronoun, self.conjugation.apply(self.infinitive, pronoun)))
+            r.append("\t%-20s : %s" % (pronoun, self.conjugation.apply(self.infinitive, pronoun)))
         return '\n'.join(r)
 
+# Define our standard tenses
+
+#pdb.set_trace()
+presentTenseAR = Conjugation("Present Tense AR", presentTenseEndingsAR)
+presentTenseER = Conjugation("Present Tense ER", presentTenseEndingsER)
+presentTenseIR = Conjugation("Present Tense IR", presentTenseEndingsIR)
+
+preteriteTenseAR = Conjugation("Preterite Tense AR", preteriteTenseEndingsAR)
+preteriteTenseER = Conjugation("Preterite Tense ER", preteriteTenseEndingsER)
+preteriteTenseIR = Conjugation("Preterite Tense IR", preteriteTenseEndingsIR)
+
+futureTenseAR = Conjugation("Future Tense AR", futureTenseEndingsAR)
+futureTenseER = Conjugation("Future Tense ER", futureTenseEndingsER)
+futureTenseIR = Conjugation("Future Tense IR", futureTenseEndingsIR)
+
 def ut_RegularVerb():
-    presentTenseAR = Conjugation("Present Tense AR", presentTenseEndingsAR)
+    #pdb.set_trace()
     hablar = RegularVerb('hablar', presentTenseAR)
     print(hablar)
+    hablar.set(preteriteTenseAR)
+    print(hablar)
+    hablar.set(futureTenseAR)
+    print(hablar)
 
-    presentTenseER = Conjugation("Present Tense ER", presentTenseEndingsER)
+
     comer = RegularVerb('comer', presentTenseER)
     print(comer)
-
-    presentTenseIR = Conjugation("Present Tense IR", presentTenseEndingsIR)
     vivir = RegularVerb('vivir', presentTenseIR)
     print(vivir)
 
