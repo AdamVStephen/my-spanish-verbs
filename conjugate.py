@@ -26,7 +26,7 @@ presentTenseEndingsAR = {
             'tu' : 'as',
             'el/ella/usted' : 'a',
             'nosotros' : 'amos',
-            'vosotros' : 'ais',
+            'vosotros' : 'áis',
             'ellos/ellas/ustedes' : 'an'
             }
 
@@ -35,7 +35,7 @@ presentTenseEndingsER = {
             'tu' : 'es',
             'el/ella/usted' : 'e',
             'nosotros' : 'emos',
-            'vosotros' : 'eis',
+            'vosotros' : 'éis',
             'ellos/ellas/ustedes' : 'en'
             }
 
@@ -44,7 +44,7 @@ presentTenseEndingsIR = {
             'tu' : 'es',
             'el/ella/usted' : 'e',
             'nosotros' : 'imos',
-            'vosotros' : 'is',
+            'vosotros' : 'ís',
             'ellos/ellas/ustedes' : 'en'
             }
 
@@ -52,18 +52,18 @@ presentTenseEndingsIR = {
 # Preterite
 
 preteriteTenseEndingsAR = {
-            'yo' : 'e',
+            'yo' : 'é',
             'tu' : 'aste',
-            'el/ella/usted' : 'o',
+            'el/ella/usted' : 'ó',
             'nosotros' : 'amos',
             'vosotros' : 'asteis',
             'ellos/ellas/ustedes' : 'aron'
             }
 
 preteriteTenseEndingsER = {
-            'yo' : 'i',
+            'yo' : 'í',
             'tu' : 'iste',
-            'el/ella/usted' : 'io',
+            'el/ella/usted' : 'ió',
             'nosotros' : 'imos',
             'vosotros' : 'isteis',
             'ellos/ellas/ustedes' : 'ieron'
@@ -74,30 +74,30 @@ preteriteTenseEndingsIR = preteriteTenseEndingsER
 # Future : using the pattern [:-2] needs to distinguish three cases, though w.r.t. the final infinitive, suffixes are the same
 
 futureTenseEndingsAR = {
-            'yo' : 'are',
-            'tu' : 'aras',
-            'el/ella/usted' : 'ara',
-            'nosotros' : 'aremos',
-            'vosotros' : 'areis',
-            'ellos/ellas/ustedes' : 'aran'
+            'yo' : 'aré',
+            'tu' : 'arás',
+            'el/ella/usted' : 'ará',
+            'nosotros' : 'arémos',
+            'vosotros' : 'aréis',
+            'ellos/ellas/ustedes' : 'arán'
             }
 
 futureTenseEndingsER = {
-            'yo' : 'ere',
-            'tu' : 'eras',
-            'el/ella/usted' : 'era',
-            'nosotros' : 'eremos',
-            'vosotros' : 'ereis',
-            'ellos/ellas/ustedes' : 'eran'
+            'yo' : 'eré',
+            'tu' : 'erás',
+            'el/ella/usted' : 'erá',
+            'nosotros' : 'erémos',
+            'vosotros' : 'eréis',
+            'ellos/ellas/ustedes' : 'erán'
             }
 
 futureTenseEndingsIR = {
-            'yo' : 'ire',
-            'tu' : 'iras',
-            'el/ella/usted' : 'ira',
-            'nosotros' : 'iremos',
-            'vosotros' : 'ireis',
-            'ellos/ellas/ustedes' : 'iran'
+            'yo' : 'iré',
+            'tu' : 'irás',
+            'el/ella/usted' : 'irá',
+            'nosotros' : 'irémos',
+            'vosotros' : 'iréis',
+            'ellos/ellas/ustedes' : 'irán'
             }
 
 
